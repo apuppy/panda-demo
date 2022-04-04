@@ -60,3 +60,26 @@ mvn spring-boot:run
 ```shell
 mvn dependency:tree
 ```
+
+### 创建可运行的jar包
+- 在pom.xml里添加`spring-boot-maven-plugin`
+```xml
+<build>
+    <plugins>
+        <plugin>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-maven-plugin</artifactId>
+        </plugin>
+    </plugins>
+</build>
+```
+- 打包
+```shell
+mvn package
+# 运行完成后会在target目录里生成*-SNAPSHOT.jar
+```
+
+- 运行
+```shell
+java -jar target/*-SNAPSHOT.jar
+```
