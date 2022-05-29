@@ -12,7 +12,7 @@ class DemoApplicationTests {
 
 	@Test
 	void contextLoads() {
-		System.out.println(bookDao.getBook(2));
+		System.out.println(bookDao.selectList(null));
 	}
 
 }
