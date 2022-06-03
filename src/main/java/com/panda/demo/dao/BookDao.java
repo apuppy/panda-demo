@@ -1,4 +1,4 @@
-package com.panda.demo;
+package com.panda.demo.dao;
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import com.panda.demo.domain.Book;
