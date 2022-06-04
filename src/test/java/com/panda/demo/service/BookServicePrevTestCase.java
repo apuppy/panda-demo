@@ -1,17 +1,16 @@
 package com.panda.demo.service;
 
 import com.baomidou.mybatisplus.core.metadata.IPage;
-import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.panda.demo.domain.Book;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-public class BookServiceTestCase {
+public class BookServicePrevTestCase {
 
     @Autowired
-    IBookService bookService;
+    BookService bookService;
 
     @Test
     void testGetById() {
@@ -34,23 +33,22 @@ public class BookServiceTestCase {
         book.setAuthor("Tim Steve");
         book.setName("How google works");
         book.setPublished_time("2022-06-03 15:00:03");
-        System.out.println(bookService.updateById(book));
+        System.out.println(bookService.update(book));
     }
 
     @Test
     void testDelete() {
-        System.out.println(bookService.removeById(4));
+        System.out.println(bookService.delete(4));
     }
 
     @Test
     void testGetAll() {
-        System.out.println(bookService.list());
+        System.out.println(bookService.getAll());
     }
 
     @Test
     void testPage() {
-        IPage page = new Page<Book>(2, 3);
-        bookService.page(page);
+        IPage<Book> page = bookService.getPage(2, 3);
         System.out.println(page.getCurrent());
         System.out.println(page.getSize());
         System.out.println(page.getTotal());
