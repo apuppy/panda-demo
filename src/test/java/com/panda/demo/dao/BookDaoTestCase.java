@@ -1,17 +1,16 @@
-package com.panda.demo;
+package com.panda.demo.dao;
 
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
-import com.panda.demo.dao.BookDao;
 import com.panda.demo.domain.Book;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-public class BookDaoTests {
+public class BookDaoTestCase {
 
     @Autowired
     private BookDao bookDao;
