@@ -1,5 +1,9 @@
 package com.panda.demo;
 
+import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
+import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
+import com.baomidou.mybatisplus.core.metadata.IPage;
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.panda.demo.dao.BookDao;
 import com.panda.demo.domain.Book;
 import org.junit.jupiter.api.Test;
@@ -48,11 +52,27 @@ public class BookDaoTests {
 
     @Test
     void testPage() {
-        // System.out.println(bookDao);
+        IPage<Book> page = new Page<>(2, 3);
+        bookDao.selectPage(page, null);
+        System.out.println(page.getCurrent());
+        System.out.println(page.getSize());
+        System.out.println(page.getTotal());
+        System.out.println(page.getPages());
+        System.out.println(page.getRecords());
     }
 
     @Test
-    void testGetBy() {
-        // System.out.println(bookDao);
+    void testGetByCondition() {
+        QueryWrapper<Book> qw = new QueryWrapper<>();
+        qw.like("author", "wu");
+        bookDao.selectList(qw);
+    }
+
+    @Test
+    void testGetByConditionPro() {
+        String name = "west";
+        LambdaQueryWrapper<Book> lqw = new LambdaQueryWrapper<>();
+        lqw.like(name.isEmpty() == false, Book::getName, name);
+        bookDao.selectList(lqw);
     }
 }
