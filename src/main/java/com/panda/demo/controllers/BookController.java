@@ -1,38 +1,48 @@
 package com.panda.demo.controllers;
 
+import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.panda.demo.domain.Book;
+import com.panda.demo.service.IBookService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
 @RequestMapping("/books")
 public class BookController {
-    @PostMapping
-    public String save(@RequestBody Book book) {
-        System.out.println("book save..." + book);
-        return "{'module':'save'}";
-    }
+
+    @Autowired
+    private IBookService bookService;
 
     @GetMapping
-    public String getBooks() {
-        System.out.println("book list...");
-        return "{'module':'list'}";
+    public List<Book> getAll() {
+        return bookService.list();
     }
 
-    @GetMapping("/{id}")
-    public String getBook(@PathVariable Integer id) {
-        System.out.println("book item..." + id);
-        return "{'module':'item'}";
+    @PostMapping
+    public Boolean save(@RequestBody Book book) {
+        return bookService.save(book);
     }
 
     @PutMapping
-    public String update(@RequestBody Book book) {
-        System.out.println("book update..." + book);
-        return "{'module':'put'}";
+    public Boolean update(@RequestBody Book book) {
+        return bookService.modify(book);
     }
 
     @DeleteMapping("/{id}")
-    public String delete(@PathVariable Integer id) {
-        System.out.println("book delete..." + id);
-        return "{'module':'delete'}";
+    public Boolean delete(@PathVariable Integer id) {
+        return bookService.delete(id);
     }
+
+    @GetMapping("/{id}")
+    public Book getBook(@PathVariable Integer id) {
+        return bookService.getById(id);
+    }
+
+    @GetMapping("{currentPage}/{pageSize}")
+    public IPage<Book> getPage(@PathVariable Integer currentPage, @PathVariable Integer pageSize) {
+        return bookService.getPage(currentPage, pageSize);
+    }
+
 }
