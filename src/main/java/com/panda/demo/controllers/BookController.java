@@ -19,8 +19,12 @@ public class BookController {
     }
 
     @PostMapping
-    public R save(@RequestBody Book book) {
-        return new R(bookService.save(book));
+    public R save(@RequestBody Book book) throws Exception {
+        if (book.getName().equals("warn")) {
+            throw new Exception("warning");
+        }
+        Boolean flag = bookService.save(book);
+        return new R(flag, flag ? "添加成功" : "添加失败");
     }
 
     @PutMapping
