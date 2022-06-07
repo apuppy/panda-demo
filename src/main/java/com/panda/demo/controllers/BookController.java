@@ -43,8 +43,9 @@ public class BookController {
     }
 
     @GetMapping("{currentPage}/{pageSize}")
-    public R getPage(@PathVariable Integer currentPage, @PathVariable Integer pageSize) {
-        return new R(true, bookService.getPage(currentPage, pageSize));
+    public R getPage(@PathVariable Integer currentPage, @PathVariable Integer pageSize, Book book) {
+        System.out.println("currentPage = " + currentPage + ", pageSize = " + pageSize + ", book = " + book);
+        return new R(true, bookService.getPage(currentPage, pageSize, book));
     }
 
 }
