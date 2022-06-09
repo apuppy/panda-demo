@@ -13,5 +13,4 @@ public class HomeController {
         log.info("welcome to homepage");
         return "Hello World!";
     }
-
 }

@@ -40,3 +40,11 @@ mybatis-plus:
   configuration:
     log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
 #      table-prefix:
+
+demo-server:
+  ipAddress: 192.168.0.1
+  port: 2345
+  timeout: -1
+
+demo-data-source:
+  driverClassName: com.mysql.jdbc.Driver456
