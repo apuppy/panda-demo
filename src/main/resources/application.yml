@@ -1,36 +1,3 @@
-server:
-  port: 8080
-
-logging:
-  level:
-    root: info
-
-management:
-  endpoints:
-    enabled-by-default: true
-    jmx:
-      exposure:
-        include: "*"
-    web:
-      exposure:
-        include: "*"
-        exclude: env
 spring:
-  datasource:
-    driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://localhost:3306/ssm_demo?serverTimezone=UTC
-    username: root
-    password: 123456
-#    druid:
-#      driver-class-name: com.mysql.cj.jdbc.Driver
-#      url: jdbc:mysql://localhost:3306/ssm_demo?serverTimezone=UTC
-#      username: root
-#      password: 123456
-
-mybatis-plus:
-  global-config:
-    db-config:
-      id-type: auto
-  configuration:
-    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
-#      table-prefix:
+  profiles:
+    active: dev
