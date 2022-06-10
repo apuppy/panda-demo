@@ -45,9 +45,10 @@ public class BookServiceImpl extends ServiceImpl<BookDao, Book> implements IBook
         lqw.like(Strings.isNotEmpty(book.getName()), Book::getName, book.getName());
         lqw.like(Strings.isNotEmpty(book.getAuthor()), Book::getAuthor, book.getAuthor());
         lqw.like(Strings.isNotEmpty(book.getPublished_time()), Book::getPublished_time, book.getPublished_time());
+        lqw.orderByDesc(Book::getId);
 
         IPage page = new Page(currentPage, pageSize);
-        bookDao.selectPage(page, lqw).orders();
+        bookDao.selectPage(page, lqw);
         return page;
     }
 }
