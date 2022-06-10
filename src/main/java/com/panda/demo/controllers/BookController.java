@@ -1,5 +1,6 @@
 package com.panda.demo.controllers;
 
+import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.panda.demo.domain.Book;
 import com.panda.demo.service.IBookService;
 import com.panda.demo.utils.R;
@@ -15,7 +16,9 @@ public class BookController {
 
     @GetMapping
     public R getAll() {
-        return new R(true, bookService.list());
+        QueryWrapper<Book> qw = new QueryWrapper<>();
+        qw.orderByDesc("id");
+        return new R(true, bookService.list(qw));
     }
 
     @PostMapping
