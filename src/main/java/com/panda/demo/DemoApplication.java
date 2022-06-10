@@ -11,8 +11,6 @@ import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.context.annotation.Bean;
 import org.springframework.web.bind.annotation.RestController;
 
-import java.util.Arrays;
-
 @RestController
 @SpringBootApplication
 @EnableConfigurationProperties(DemoServerConfig.class)
