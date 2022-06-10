@@ -50,3 +50,6 @@ demo-server:
 
 demo-data-source:
   driverClassName: com.mysql.jdbc.Driver456
+
+test:
+  prop: testValueOrigin
