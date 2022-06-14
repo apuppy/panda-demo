@@ -53,3 +53,8 @@ demo-data-source:
 
 test:
   prop: testValueOrigin
+
+test-case:
+  book:
+    name: 书名-${random.value}
+    author: 作者-${random.value}
