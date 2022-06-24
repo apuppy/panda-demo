@@ -62,3 +62,6 @@ test-case:
   book:
     name: 书名-${random.value}
     author: 作者-${random.value}
+
+rocketmq:
+  namesrvAddr: localhost:9876
