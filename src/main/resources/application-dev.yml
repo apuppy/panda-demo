@@ -30,6 +30,11 @@ spring:
   redis:
     host: localhost
     port: 6379
+  mail:
+    host: smtp.qq.com
+    username: 1126422830@qq.com
+    password: sqhfuaygumzvihga
+
 #    druid:
 #      driver-class-name: com.mysql.cj.jdbc.Driver
 #      url: jdbc:mysql://localhost:3306/ssm_demo?serverTimezone=UTC

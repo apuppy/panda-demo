@@ -17,7 +17,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 import java.util.List;
 
 @SpringBootTest
-public class RocketDemoTests {
+public class RocketTests {
 
     @Value("${rocketmq.namesrvAddr:localhost:9876}")
     private String rocketmqNamesrvAddr;
