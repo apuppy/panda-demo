@@ -4,6 +4,7 @@ import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.panda.demo.domain.Book;
 import com.panda.demo.service.IBookService;
 import com.panda.demo.utils.R;
+import com.zootechs.utils.service.IpCounterService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -14,10 +15,14 @@ public class BookController {
     @Autowired
     private IBookService bookService;
 
+    @Autowired
+    private IpCounterService ipCounterService;
+
     @GetMapping
     public R getAll() {
         QueryWrapper<Book> qw = new QueryWrapper<>();
         qw.orderByDesc("id");
+        ipCounterService.count();
         return new R(true, bookService.list(qw));
     }
 
