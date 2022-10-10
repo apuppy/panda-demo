@@ -77,6 +77,6 @@ elasticsearch:
 
 utils:
   ip:
-    cycle: 10
+    cycle: 3
     cycle-reset: false
     mode: "detail"
