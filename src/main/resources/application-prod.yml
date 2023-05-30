@@ -9,7 +9,7 @@ logging:
   logback:
     rollingpolicy:
       max-file-size: 10MB
-      file-name-pattern: server.%d.%i.log
+      file-name-pattern: log/app.%d.%i.log
 
 management:
   endpoints:

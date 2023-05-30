@@ -21,10 +21,8 @@ public class TestController {
     }
 
     @RequestMapping(value = "/503", method = {RequestMethod.GET, RequestMethod.POST})
-    public ResponseEntity<String> Status503() {
-        // Your business logic here
+    public ResponseEntity<String> status503() {
         log.info("503 test request received");
-        // If something goes wrong, you can return a 503 status code
         return new ResponseEntity<>("Service Unavailable", HttpStatus.SERVICE_UNAVAILABLE);
     }
 }
