@@ -5,7 +5,7 @@ logging:
   level:
     root: info
   file:
-    name: server.log
+    name: log/app.log
   logback:
     rollingpolicy:
       max-file-size: 10MB
